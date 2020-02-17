@@ -33,6 +33,13 @@ const MARK_FRIEND_FAVORITE = 'MARK_FRIEND_FAVORITE'
 // Two arguments (currentstate & an action -> { type, payload })
 function reducer(state, action) {
   switch (action.type) {
+    case ADD_FRIEND: {
+      const newFriend = action.payload
+      return {
+        ...state,
+        friends: [...state.friends, newFriend]
+      }
+    }
     case INPUT_CHANGE:
       // in order to change the value of one input
       // we need to know which input got typed on
