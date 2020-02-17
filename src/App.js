@@ -48,7 +48,6 @@ function reducer(state, action) {
           ...state.formValues,
           // want to smash one of the keys
           [inputName]: inputValue,
-          gaga: 'lady'
         }
       }
     default:
