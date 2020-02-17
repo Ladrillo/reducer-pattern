@@ -2,18 +2,19 @@ import React from 'react'
 import uuid from 'uuid'
 import './App.css'
 
-const friends = [
-  { id: uuid(), fname: 'Jane', lname: 'Doe', married: false },
-  { id: uuid(), fname: 'john', lname: 'Smith', married: false },
-]
+const someId = uuid()
+const anotherId = uuid()
 
 const initialState = {
   formValues: {
     fname: '',
     lname: '',
   },
-  favFriendId: friends[0].id,
-  friends,
+  friends: [
+    { id: someId, fname: 'Jane', lname: 'Doe', married: false },
+    { id: anotherId, fname: 'john', lname: 'Smith', married: false },
+  ],
+  favFriendId: someId,
 }
 
 function reducer(state, action) {
