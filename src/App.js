@@ -47,7 +47,8 @@ function reducer(state, action) {
         formValues: {
           ...state.formValues,
           // want to smash one of the keys
-          [inputName]: inputValue
+          [inputName]: inputValue,
+          gaga: 'lady'
         }
       }
     default:
@@ -59,6 +60,9 @@ function reducer(state, action) {
 
 export default function App() {
   const [state, dispatch] = useReducer(reducer, initialState)
+  const onChange = event => {
+
+  }
   return (
     <div className="App">
       {/* here we can add a new friend */}
@@ -67,7 +71,7 @@ export default function App() {
         <label>first name
         <input
             value={state.formValues.fname}
-            onChange={Function.prototype}
+            onChange={onChange}
             name='fname'
           />
         </label><br />
@@ -75,7 +79,7 @@ export default function App() {
         <label>last name
         <input
             value={state.formValues.lname}
-            onChange={Function.prototype}
+            onChange={onChange}
             name='lname'
           />
         </label><br />
