@@ -3,8 +3,8 @@ import uuid from 'uuid'
 import './App.css'
 
 const friends = [
-  { id: uuid(), fname: 'Jane', lname: 'doe', married: false },
-  { id: uuid(), fname: 'john', lname: 'smith', married: false },
+  { id: uuid(), fname: 'Jane', lname: 'Doe', married: false },
+  { id: uuid(), fname: 'john', lname: 'Smith', married: false },
 ]
 
 const initialState = {
@@ -61,7 +61,7 @@ export default function App() {
       }
 
       {/* my current favorite friend */}
-      <h4 className='fav'>My fav friend is {
+      <h4 className='fav'>My favorite friend is {
         state.friends
           .find(fr => fr.id === state.favFriendId)
           .fname
