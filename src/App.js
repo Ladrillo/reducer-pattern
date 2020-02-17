@@ -32,6 +32,7 @@ const MARK_FRIEND_FAVORITE = 'MARK_FRIEND_FAVORITE'
 //   - no side effects, no randomness...
 // Two arguments (currentstate & an action -> { type, payload })
 function reducer(state, action) {
+  debugger
   switch (action.type) {
     case ADD_FRIEND: {
       const newFriend = action.payload
@@ -73,6 +74,7 @@ export default function App() {
     dispatch({ type: INPUT_CHANGE, payload: { inputName, inputValue } })
   }
   const onSubmit = event => {
+    debugger
     event.preventDefault()
     const newFriend = {
       id: uuid(),
