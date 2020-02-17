@@ -61,7 +61,9 @@ function reducer(state, action) {
 export default function App() {
   const [state, dispatch] = useReducer(reducer, initialState)
   const onChange = event => {
-
+    const inputName = event.target.name
+    const inputValue = event.target.value
+    dispatch({ type: INPUT_CHANGE, payload: { inputName, inputValue } })
   }
   return (
     <div className="App">
