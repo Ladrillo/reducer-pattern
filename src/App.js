@@ -33,8 +33,13 @@ const MARK_FRIEND_FAVORITE = 'MARK_FRIEND_FAVORITE'
 // Two arguments (currentstate & an action -> { type, payload })
 function reducer(state, action) {
   switch (action.type) {
-  
+    case INPUT_CHANGE:
+      // in order to change the value of one input
+      // we need to know which input got typed on
+      // and what the value of target.value is
     default:
+      // if the action.type does not match any of the cases in the switch,
+      // we still need to return app state
       return state
   }
 }
