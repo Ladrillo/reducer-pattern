@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useReducer } from 'react'
 import uuid from 'uuid'
 import './App.css'
 
@@ -24,13 +24,22 @@ const ADD_FRIEND = 'ADD_FRIEND'
 const MARK_FRIEND_MARRIED = 'MARK_FRIEND_MARRIED'
 const MARK_FRIEND_FAVORITE = 'MARK_FRIEND_FAVORITE'
 
-
+// STEP 3 build a reducer
+// that takes into account all those types of actions
+// Reducer "reduces" currentstate & action into FRESH NEW STATE
+// Reducers are "pure" functions:
+//   - always returning the same thing given the same args
+//   - no side effects, no randomness...
+// Two arguments (currentstate & an action -> { type, payload })
 function reducer(state, action) {
+  // let newId = uuid()
+  // let date = Date.now()
+  // console.log()
   return state
 }
 
 export default function App() {
-  const state = initialState
+  const [state, dispatch] = useReducer(reducer, initialState)
   return (
     <div className="App">
       {/* here we can add a new friend */}
