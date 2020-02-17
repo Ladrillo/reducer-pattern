@@ -5,6 +5,7 @@ import './App.css'
 const someId = uuid()
 const anotherId = uuid()
 
+// STEP 1 think of the shape of the state
 const initialState = {
   formValues: {
     fname: '',
@@ -16,6 +17,13 @@ const initialState = {
   ],
   favFriendId: someId,
 }
+
+// STEP 2 think of all action types that might be necessary
+const INPUT_CHANGE = 'INPUT_CHANGE'
+const ADD_FRIEND = 'ADD_FRIEND'
+const MARK_FRIEND_MARRIED = 'MARK_FRIEND_MARRIED'
+const MARK_FRIEND_FAVORITE = 'MARK_FRIEND_FAVORITE'
+
 
 function reducer(state, action) {
   return state
