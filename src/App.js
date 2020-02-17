@@ -32,8 +32,18 @@ const MARK_FRIEND_FAVORITE = 'MARK_FRIEND_FAVORITE'
 //   - no side effects, no randomness...
 // Two arguments (currentstate & an action -> { type, payload })
 function reducer(state, action) {
-  debugger
   switch (action.type) {
+    case MARK_FRIEND_MARRIED:
+      return {
+        ...state,
+        friends: state.friends.map(fr => {
+          const friendId = action.payload 
+          if (fr.id === friendId) {
+            return { ...fr, married: true }
+          }
+          return fr
+        })
+      }
     case ADD_FRIEND: {
       const newFriend = action.payload
       return {
