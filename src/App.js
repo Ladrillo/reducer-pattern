@@ -37,6 +37,7 @@ function reducer(state, action) {
       const newFriend = action.payload
       return {
         ...state,
+        formValues: { fname: '', lname: '' },
         friends: [...state.friends, newFriend]
       }
     }
@@ -71,11 +72,20 @@ export default function App() {
     const inputValue = event.target.value
     dispatch({ type: INPUT_CHANGE, payload: { inputName, inputValue } })
   }
+  const onSubmit = event => {
+    event.preventDefault()
+    const newFriend = {
+      id: uuid(),
+      fname: state.formValues.fname,
+      'lname': state.formValues.lname,
+    }
+    dispatch({ type: ADD_FRIEND, payload: newFriend })
+  }
   return (
     <div className="App">
       {/* here we can add a new friend */}
       <h4>Add a new friend (married defaults to false)</h4>
-      <form className='form' onSubmit={Function.prototype}>
+      <form className='form' onSubmit={onSubmit}>
         <label>first name
         <input
             value={state.formValues.fname}
