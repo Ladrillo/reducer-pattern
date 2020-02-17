@@ -32,10 +32,11 @@ const MARK_FRIEND_FAVORITE = 'MARK_FRIEND_FAVORITE'
 //   - no side effects, no randomness...
 // Two arguments (currentstate & an action -> { type, payload })
 function reducer(state, action) {
-  // let newId = uuid()
-  // let date = Date.now()
-  // console.log()
-  return state
+  switch (action.type) {
+  
+    default:
+      return state
+  }
 }
 
 export default function App() {
