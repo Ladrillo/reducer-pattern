@@ -11,8 +11,8 @@ const initialState = {
     fname: '',
     lname: '',
   },
+  favFriendId: friends[0].id,
   friends,
-  favFriendId: friends[0].id
 }
 
 export default function App() {
@@ -48,7 +48,7 @@ export default function App() {
             key={fr.id}
           >
             {fr.fname} {fr.lname} is{fr.married ? ' ' : ' NOT '}married
-              <button onClick={Function.prototype}>Mark Married</button>
+            <button onClick={Function.prototype}>Mark Married</button>
             <button onClick={Function.prototype}>Fav</button>
           </div>
         ))
