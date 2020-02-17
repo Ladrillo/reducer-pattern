@@ -6,6 +6,7 @@ const friends = [
   { id: uuid(), fname: 'Jane', lname: 'doe', married: false },
   { id: uuid(), fname: 'john', lname: 'smith', married: false },
 ]
+
 const initialState = {
   formValues: {
     fname: '',
@@ -15,7 +16,12 @@ const initialState = {
   friends,
 }
 
+function reducer(state, action) {
+  return state
+}
+
 export default function App() {
+  const state = initialState
   return (
     <div className="App">
       {/* here we can add a new friend */}
@@ -23,7 +29,7 @@ export default function App() {
       <form className='form' onSubmit={Function.prototype}>
         <label>first name
         <input
-            value=''
+            value={state.formValues.fname}
             onChange={Function.prototype}
             name='fname'
           />
@@ -31,7 +37,7 @@ export default function App() {
 
         <label>last name
         <input
-            value=''
+            value={state.formValues.lname}
             onChange={Function.prototype}
             name='lname'
           />
@@ -43,7 +49,7 @@ export default function App() {
       {/* list of current friends */}
       <h4>My friends:</h4>
       {
-        initialState.friends.map(fr => (
+        state.friends.map(fr => (
           <div
             key={fr.id}
           >
@@ -56,8 +62,8 @@ export default function App() {
 
       {/* my current favorite friend */}
       <h4 className='fav'>My fav friend is {
-        initialState.friends
-          .find(fr => fr.id === initialState.favFriendId)
+        state.friends
+          .find(fr => fr.id === state.favFriendId)
           .fname
       }</h4>
     </div>
