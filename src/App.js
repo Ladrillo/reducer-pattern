@@ -37,7 +37,7 @@ function reducer(state, action) {
       return {
         ...state,
         friends: state.friends.map(fr => {
-          const friendId = action.payload 
+          const friendId = action.payload
           if (fr.id === friendId) {
             return { ...fr, married: true }
           }
@@ -125,7 +125,9 @@ export default function App() {
             key={fr.id}
           >
             {fr.fname} {fr.lname} is{fr.married ? ' ' : ' NOT '}married
-            <button onClick={Function.prototype}>Mark Married</button>
+            <button onClick={evt => {
+              dispatch({ type: MARK_FRIEND_MARRIED, payload: fr.id })
+            }}>Mark Married</button>
             <button onClick={Function.prototype}>Fav</button>
           </div>
         ))
