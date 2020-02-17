@@ -8,7 +8,7 @@ const anotherId = uuid()
 // STEP 1 think of the shape of the state
 const initialState = {
   formValues: {
-    fname: '',
+    fname: '', // <-------------------------------------------------
     lname: '',
   },
   friends: [
@@ -36,7 +36,20 @@ function reducer(state, action) {
     case INPUT_CHANGE:
       // in order to change the value of one input
       // we need to know which input got typed on
-      // and what the value of target.value is
+      // and what the value of target.value is.
+      // ANY RAW MATERIALS NEEDED TO RE-COMPUTE STATE
+      // COME INSIDE THE ACTION (usually the action.payload)
+      const { inputName, inputValue } = action.payload
+      // Actions falling through this branch will have to look like this:
+      // { type: INPUT_CHANGE, payload: { inputName: "fname", inputValue: "Al" }}
+      return {
+        ...state,
+        formValues: {
+          ...state.formValues,
+          // want to smash one of the keys
+          [inputName]: inputValue
+        }
+      }
     default:
       // if the action.type does not match any of the cases in the switch,
       // we still need to return app state
